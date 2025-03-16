@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- metadata tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>toronto cupcake faq page redesign</title>
+		<!-- import CSS styles -->
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+
+	<!-- page content goes into <body> -->
+	<body>
+		<div id="headerContainer"></div>
+		<script>
+			fetch("./things/header.html")
+				.then((response) => response.text())
+				.then((data) => {
+					document.getElementById("headerContainer").innerHTML = data;
+				})
+				.catch((error) =>
+					console.error("Error loading header:", error)
+				);
+		</script>
+
+		<div id="footerContainer"></div>
+		<script>
+			fetch("./things/footer.html")
+				.then((response) => response.text())
+				.then((data) => {
+					document.getElementById("footerContainer").innerHTML = data;
+				})
+				.catch((error) =>
+					console.error("Error loading footer:", error)
+				);
+		</script>
+	</body>
+</html>
