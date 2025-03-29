@@ -3,8 +3,64 @@
 body {
 	font-family: "Karla", sans-serif;
 	max-width: 100%;
-	/* display: flex;
-	box-sizing: border-box; */
+	/* box-sizing: border-box; */
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-rows: auto 1fr auto; /* Header | FAQ content | Footer */
+	/* height: 100vh; Full viewport height */
+}
+
+.accordion {
+	background-color: blue;
+	/* margin: 60px auto; */
+	width: 800px;
+}
+
+/* hide the radio button */
+input[type="radio"] {
+	display: none;
+}
+
+/* adds '+' before each label, with 10px margin to between */
+label::before {
+	content: "+";
+	margin-right: 10px;
+}
+
+/* question and answer */
+.accordion li {
+	background-color: crimson;
+	list-style: none;
+	max-width: 100%;
+	margin: 20px 20px;
+	padding: 10px 10px;
+	border-radius: 8px;
+}
+
+/* question */
+.accordion li label {
+	background-color: #fff0f5;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	cursor: pointer;
+}
+
+/* answer */
+.accordion .content {
+	background-color: aquamarine;
+	padding: 0 10px; /* add 10px to L/R */
+	line-height: 26px;
+	/* hide answer when unclicked */
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s, padding 0.5s;
+}
+
+.accordion input[type="radio"]:checked + label + .content {
+	max-height: 400px;
+	padding: 10px 10x 20px;
 }
 
 /* @media only screen and (min-width: 1272px) { */
@@ -12,7 +68,7 @@ body {
 
 .logo-text {
 	font-family: Tahoma;
-	font-size: 40px;
+	font-size: 36px;
 	letter-spacing: 8px;
 	color: #c22c5d;
 }
@@ -20,7 +76,7 @@ body {
 a:link,
 a:visited {
 	font-weight: bold;
-	font-size: 36px;
+	font-size: 24px;
 	color: #c22c5d;
 	text-decoration: none;
 }
@@ -31,7 +87,7 @@ a:visited {
 	display: flex;
 	justify-content: space-between;
 	align-items: center; /* align centered vertically */
-	width: max-content; /* Shrinks to fit content width
+	max-width: max-content; /* Shrinks to fit content width */
 	gap: 24px; /* add 12px gap btwn elts L/R */
 	background-color: blue;
 }
@@ -61,19 +117,34 @@ a:visited {
 	background-color: #ffe1eb;
 	display: flex;
 	justify-content: space-between; /* pin logo left, navbar tabs right */
-	padding: 0% 2%; /* 0 top/bottom, 2 L/R */
+	padding: 1% 2%; /* 1 top/bottom, 2 L/R */
+	/* NOTE: don't use width: 100% wiht padding, it'll extend past page */
+	max-width: 100%;
 }
 
 .footer {
-	position: fixed;
-	bottom: 0;
-	background-color: aquamarine;
-	width: 100%;
+	background-color: #ffe1eb;
+	max-width: 100%;
 }
 
 .footer nav {
 	display: flex;
 	justify-content: space-around;
+	padding: 1% 0%; /* 1 top/bottom, 0 L/R as it uses space-between */
+}
+
+.faq {
+	background-color: aquamarine;
+	overflow-y: auto; /* scrolling */
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* center on the horizontal axis */
+	padding: 24px 8%;
+	gap: 12px;
+}
+
+.faqSection {
+	text-align: left;
 }
 /* } */
 

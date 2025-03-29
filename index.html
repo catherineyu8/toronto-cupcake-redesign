@@ -22,6 +22,16 @@
 				);
 		</script>
 
+		<div id="faqContainer"></div>
+		<script>
+			fetch("./things/faq.html")
+				.then((response) => response.text())
+				.then((data) => {
+					document.getElementById("faqContainer").innerHTML = data;
+				})
+				.catch((error) => console.error("Error loading faq:", error));
+		</script>
+
 		<div id="footerContainer"></div>
 		<script>
 			fetch("./things/footer.html")
