@@ -33,7 +33,7 @@ body {
 	align-items: center; /* align items in the center vertically */
 	justify-content: space-between; /* push carrot to right */
 	max-width: 100%;
-	padding: 10px;
+	padding: 15px;
 	cursor: pointer;
 	border-radius: 8px;
 	gap: 12px;
@@ -53,7 +53,7 @@ body {
 /* hidden answer */
 .accordion .content {
 	background-color: white;
-	padding: 0 10px; /* add 10px to L/R */
+	padding: 0 20px; /* add 20px to L/R */
 	line-height: 26px;
 	/* hide answer when unclicked */
 	max-height: 0; /* start content collapsed */
