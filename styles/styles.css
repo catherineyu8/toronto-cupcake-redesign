@@ -30,20 +30,25 @@ body {
 .accordion li label {
 	background-color: #fff0f5;
 	display: flex;
-	align-items: center;
+	align-items: center; /* align items in the center vertically */
 	justify-content: space-between; /* push carrot to right */
+	max-width: 100%;
 	padding: 10px;
 	cursor: pointer;
 	border-radius: 8px;
+	gap: 12px;
 }
 /* rotate the carrot in the question */
-.accordion li label span {
+.accordion li label .carrot {
 	transform: rotate(90deg);
 	transition: transform 0.3s;
+	transform-origin: center center; /* Rotates around its center */
+	display: inline-block;
 }
 /* rotate the carrot when checked */
-.accordion li input[type="checkbox"]:checked + label span {
+.accordion li input[type="checkbox"]:checked + label .carrot {
 	transform: rotate(0.75turn);
+	transform-origin: center center;
 }
 /* hidden answer */
 .accordion .content {
@@ -98,8 +103,9 @@ body {
 }
 
 /* rotate the carrots in navbar */
-.topnav nav a span {
+.topnav nav a .carrot {
 	transform: rotate(90deg);
+	transform-origin: center center;
 }
 
 .topnav a {
@@ -182,7 +188,7 @@ p {
 
 .faqSection {
 	text-align: left;
-	width: 100%; /* take up full width of faq parent */
+	max-width: 100%; /* take up full width of faq parent */
 }
 
 /* tablet styles */
