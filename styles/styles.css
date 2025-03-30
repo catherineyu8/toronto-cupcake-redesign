@@ -50,7 +50,7 @@ body {
 	transform: rotate(0.75turn);
 	transform-origin: center center;
 }
-/* hidden answer */
+/* hidden answer content */
 .accordion .content {
 	background-color: white;
 	padding: 0 20px; /* add 20px to L/R */
@@ -60,10 +60,10 @@ body {
 	overflow: hidden;
 	transition: max-height 0.5s;
 }
-/* expanded content (?) */
+/* expanded answer content */
 .accordion input[type="checkbox"]:checked + label + .content {
 	max-height: 400px;
-	padding: 0px 10px;
+	padding: 0px 20px;
 }
 
 /* logo styling */
