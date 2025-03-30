@@ -13,18 +13,19 @@ body {
 
 /* FAQ accordion */
 .accordion {
-	background-color: blue;
+	background-color: grey;
 	width: 100%; /* take up full width of faq parent */
 	padding: 0; /* reset padding */
 }
 /* question and answer */
 .accordion li {
-	background-color: crimson;
+	background-color: white;
 	list-style: none;
 	max-width: 100%;
-	margin: 20px 20px;
-	padding: 10px 10px;
-	border-radius: 8px;
+	margin: 20px 0px; /* put spacing between each q */
+	border-bottom: solid;
+	border-bottom-color: #c22c5d;
+	text-wrap: wrap;
 }
 /* question */
 .accordion li label {
@@ -34,6 +35,7 @@ body {
 	justify-content: space-between; /* push carrot to right */
 	padding: 10px;
 	cursor: pointer;
+	border-radius: 8px;
 }
 /* rotate the carrot in the question */
 .accordion li label span {
@@ -42,11 +44,11 @@ body {
 }
 /* rotate the carrot when checked */
 .accordion li input[type="checkbox"]:checked + label span {
-	transform: rotate(-90deg);
+	transform: rotate(-90deg) translateY(-30px);
 }
 /* hidden answer */
 .accordion .content {
-	background-color: aquamarine;
+	background-color: white;
 	padding: 0 10px; /* add 10px to L/R */
 	line-height: 26px;
 	/* hide answer when unclicked */
@@ -54,44 +56,13 @@ body {
 	overflow: hidden;
 	transition: max-height 0.5s;
 }
+/* expanded content (?) */
 .accordion input[type="checkbox"]:checked + label + .content {
 	max-height: 400px;
 	padding: 0px 10px;
 }
 
-/* @media only screen and (min-width: 1272px) { */
-/* text styles */
-
-.logo-text {
-	font-family: Tahoma;
-	font-size: 40px;
-	letter-spacing: 8px;
-	color: #c22c5d;
-}
-
-/* navbar tab text style = heading */
-a:link,
-a:visited,
-.heading {
-	font-weight: bold;
-	font-size: 36px;
-	color: #c22c5d;
-	text-decoration: none;
-}
-
-.subheading {
-	font-weight: bold;
-	font-size: 24px;
-	color: #c22c5d;
-}
-
-/* normal text style */
-p {
-	font-size: 18px;
-}
-
-/* header styles */
-
+/* logo styling */
 .logo {
 	display: flex;
 	justify-content: space-between;
@@ -100,17 +71,26 @@ p {
 	gap: 24px; /* add 12px gap btwn elts L/R */
 	background-color: blue;
 }
+.logo-text {
+	font-family: Tahoma;
+	font-size: 40px;
+	letter-spacing: 8px;
+	color: #c22c5d;
+}
+
+/* navbar styles */
 
 .topnav {
 	background-color: cornflowerblue;
 	display: flex;
 	align-items: end;
+	max-width: 100%;
 }
 
 .topnav nav {
 	display: flex;
 	justify-content: space-between;
-	width: max-content; /* Shrinks to fit content width */
+	/* width: max-content; Shrinks to fit content width */
 	gap: 12px; /* add 12px gap btwn elts */
 }
 
@@ -118,8 +98,13 @@ p {
 	padding: 16px 24px; /* padding around each link text */
 	background-color: palevioletred;
 	display: flex;
-	align-items: end;
+	align-items: center;
 	gap: 10px;
+	border-radius: 24px;
+}
+
+.topnav a:hover {
+	background-color: #fff0f5;
 }
 
 .header {
@@ -127,8 +112,38 @@ p {
 	display: flex;
 	justify-content: space-between; /* pin logo left, navbar tabs right */
 	padding: 1% 2%; /* 1 top/bottom, 2 L/R */
+	gap: 12px; /* gap btwn logo and navbar */
 	/* NOTE: don't use width: 100% with padding, it'll extend past page */
 	max-width: 100%;
+	border-bottom: solid;
+	border-bottom-color: #c22c5d;
+}
+
+.mobile-nav {
+	display: none;
+}
+
+/* text styles */
+/* navbar tab text style = heading */
+a:link,
+a:visited,
+.heading {
+	text-decoration: none;
+	color: #c22c5d;
+}
+.heading {
+	font-weight: bold;
+	font-size: 36px;
+	color: #c22c5d;
+}
+.subheading {
+	font-weight: bold;
+	font-size: 24px;
+	color: #c22c5d;
+}
+/* normal text style */
+p {
+	font-size: 18px;
 }
 
 .footer {
@@ -160,14 +175,56 @@ p {
 /* } */
 
 /* tablet styles */
-/* @media only screen and (min-width: 320px) and (max-width: 1272px) {
+@media only screen and (min-width: 635px) and (max-width: 1182px) {
 	.header {
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+		/* padding: 1% 2%; 1 top/bottom, 2 L/R */
 	}
-} */
+	.heading {
+		font-size: 24px;
+	}
+	.subheading {
+		font-size: 18px;
+	}
+	/* rotate the carrot correct amt when checked */
+	.accordion li input[type="checkbox"]:checked + label span {
+		transform: rotate(-90deg) translateY(-20px);
+	}
+}
 
 /* mobile styles */
-/* @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-} */
+@media only screen and (max-width: 635px) {
+	body {
+		display: flex;
+		flex-direction: column; /* display nav and faq as cols */
+		max-width: 100%;
+		overflow-x: hidden; /* prevent sideways scroll */
+	}
+
+	/* display the expandable nav instead */
+	.nonmobile-nav {
+		display: none;
+	}
+	.mobile-nav {
+		display: flex;
+	}
+	.mobile-nav nav {
+		display: flex;
+		flex-direction: column; /* Stack items vertically */
+	}
+
+	.footer {
+		visibility: hidden;
+	}
+	.logo-text {
+		font-size: 28px;
+	}
+	.heading {
+		font-size: 24px;
+	}
+	.subheading {
+		font-size: 18px;
+	}
+}
