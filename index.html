@@ -5,14 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>toronto cupcake faq page redesign</title>
 		<!-- import CSS styles -->
-		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="styles/styles.css" />
 	</head>
 
 	<!-- page content goes into <body> -->
 	<body>
 		<div id="headerContainer"></div>
 		<script>
-			fetch("./things/header.html")
+			fetch("./pages/header.html")
 				.then((response) => response.text())
 				.then((data) => {
 					document.getElementById("headerContainer").innerHTML = data;
@@ -24,7 +24,7 @@
 
 		<div id="faqContainer"></div>
 		<script>
-			fetch("./things/faq.html")
+			fetch("./pages/faq.html")
 				.then((response) => response.text())
 				.then((data) => {
 					document.getElementById("faqContainer").innerHTML = data;
@@ -34,7 +34,7 @@
 
 		<div id="footerContainer"></div>
 		<script>
-			fetch("./things/footer.html")
+			fetch("./pages/footer.html")
 				.then((response) => response.text())
 				.then((data) => {
 					document.getElementById("footerContainer").innerHTML = data;
