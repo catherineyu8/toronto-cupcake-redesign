@@ -97,6 +97,11 @@ body {
 	gap: 12px; /* add 12px gap btwn elts */
 }
 
+/* rotate the carrots in navbar */
+.topnav nav a span {
+	transform: rotate(90deg);
+}
+
 .topnav a {
 	padding: 16px 24px; /* padding around each link text */
 	background-color: #ffe1eb;
